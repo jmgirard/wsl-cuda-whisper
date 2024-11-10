@@ -17,7 +17,7 @@ RUN apt-get update \
     && cp /var/cuda-repo-wsl-ubuntu-11-8-local/cuda-*-keyring.gpg /usr/share/keyrings/ \
     && apt-get update \
     && apt-get install -y cuda-toolkit-11-8 \
-	&& R --no-save --no-restore -e "install.packages(c('remotes', 'audio', 'abseil', 'torch'))" \
+    && R --no-save --no-restore -e "install.packages(c('remotes', 'audio', 'abseil', 'torch'))" \
     && R --no-save --no-restore -e "torch::install_torch()" \
     && R --no-save --no-restore -e "remotes::install_github('bnosac/audio.vadwebrtc')" \
     && R --no-save --no-restore -e "remotes::install_github('bnosac/audio.vadsilero')" \
