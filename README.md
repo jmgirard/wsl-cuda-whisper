@@ -1,6 +1,10 @@
 # wsl-cuda-whisper
 The audio.whisper R package allows users to easily use OpenAI's Whisper model (e.g., for automated transcription of audio files) from R. Significant speedups can be achieved on machines with CUDA-enabled graphics cards, but setting this up can be complicated. This docker image allows a user on Windows to easily install all the dependencies needed to run audio.whisper with CUDA support via Windows Subsystem for Linux (WSL2). It is built on top of the rocker/tidyverse image, which means it comes with RStudio Server installed.
 
+Versions:
+- `jmgirard/wsl-cuda-whisper:vad` is a larger image that contains voice activity detection (VAD) via {audio.vadwebrtc} and {audio.vadsilero}. It also uses CUDA 11.8 as required by these packages.
+- `jmgirard/wsl-cuda-whisper:novad` is a more streamlined image that does not contain VAD and uses the newest CUDA 12.6 version.
+
 Usage:
 1. Verify that your machine's graphics card supports CUDA: https://developer.nvidia.com/cuda-gpus
 2. On Windows, install the latest game-ready driver from NVIDIA: https://www.nvidia.com/Download/index.aspx#
