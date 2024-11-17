@@ -10,7 +10,7 @@ Usage:
 2. On Windows, install the latest game-ready driver from NVIDIA: https://www.nvidia.com/Download/index.aspx#
 3. On Windows, install the latest version of Docker Desktop: https://www.docker.com/products/docker-desktop/
 4. Open Docker Desktop and click the Terminal button on the bottom of the screen
-5. In the Terminal, type `docker pull jmgirard/wsl-cuda-whisper:vad` or `docker pull jmgirard/wsl-cuda-whisper:novad` (hit Enter and wait, it may take a while)
+5. In the Terminal, type `docker pull jmgirard/wsl-cuda-whisper:vad` or `docker pull jmgirard/wsl-cuda-whisper:novad` 
 6. In the Terminal, type `docker run --gpus all -it -e PASSWORD=pass -p 8787:8787 jmgirard/wsl-cuda-whisper`
 7. Once the Terminal has a line beginning with "TTY detected.", the container is ready
 6. In Docker Desktop, click the Containers tab on the left and click the "8787:8787" link
