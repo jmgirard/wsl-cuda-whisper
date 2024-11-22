@@ -1,0 +1,12 @@
+services:
+  whisper:
+    image: jmgirard/wsl-cuda-whisper:vad
+    ports:
+      - "8787:8787"
+    environment:
+      - PASSWORD=pass
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
