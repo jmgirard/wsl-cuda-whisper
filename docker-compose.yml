@@ -12,4 +12,3 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-    entrypoint: ["/bin/bash", "-c", "/setup_scripts/install_whisper.sh && exec /init"]
