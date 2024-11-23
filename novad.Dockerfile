@@ -13,4 +13,4 @@ ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64
 ENV CUDA_PATH=/usr/local/cuda
 ENV WHISPER_CUBLAS=1
 
-CMD ["/init"]
+ENTRYPOINT ["/bin/bash", "-c", "/setup_scripts/install_whisper.sh && exec /init"]
