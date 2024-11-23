@@ -12,4 +12,4 @@ ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64
 ENV CUDA_PATH=/usr/local/cuda
 ENV WHISPER_CUBLAS=1
 
-CMD ["bash", "-c", "R --no-save --no-restore -e 'remotes::install_github(\"bnosac/audio.whisper\")' && exec /init"]
+ENTRYPOINT ["bash", "-c", "R --no-save --no-restore -e 'pak::pkg_install(\"bnosac/audio.whisper\")' && exec /init"]

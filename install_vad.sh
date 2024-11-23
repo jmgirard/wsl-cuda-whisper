@@ -6,19 +6,15 @@ set -e
 ## Build ARGs
 NCPUS=$(nproc || echo 1)
 
-# Install R packages
-install2.r --error --skipinstalled -n "$NCPUS" \
-    abseil \
-    audio \
-    remotes \
-    torch
-
-# Install torch (requires CUDA 11.8)
-R --no-save --no-restore -e "torch::install_torch()"
-
-# Install VAD packages
-R --no-save --no-restore -e "remotes::install_github('bnosac/audio.vadwebrtc')"
-R --no-save --no-restore -e "remotes::install_github('bnosac/audio.vadsilero')"
+# Install R packages and cleanup
+R -q -e '
+    options(mc.cores = '${NCPUS}')
+    install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
+    pak::pkg_install(c("abseil", "bnosac/audio.vadwebrtc", "bnosac/audio.vadsilero", "torch"))
+    torch::install_torch()
+    pak::cache_clean()
+    pak::meta_clean(TRUE)
+'
 
 # Clean up
 rm -rf /tmp/*

@@ -11,6 +11,6 @@ ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64
 ENV CUDA_PATH=/usr/local/cuda
 ENV WHISPER_CUBLAS=1
 
-RUN install2.r --error --skipinstalled remotes
+R -e -q 'install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))'
 
-CMD ["bash", "-c", "R --no-save --no-restore -e 'remotes::install_github(\"bnosac/audio.whisper\")' && exec /init"]
+ENTRYPOINT ["bash", "-c", "R --no-save --no-restore -e 'pak::pkg_install(\"bnosac/audio.whisper\")' && exec /init"]
