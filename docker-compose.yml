@@ -1,6 +1,6 @@
 services:
   whisper:
-    image: jmgirard/wsl-cuda-whisper:vad
+    image: jmgirard/wsl-cuda-whisper:${VAD_TAG}
     ports:
       - "8787:8787"
     environment:
@@ -9,4 +9,8 @@ services:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    entrypoint: ["/bin/bash", "-c", "/setup_scripts/install_whisper.sh && exec /init"]
+    command: []

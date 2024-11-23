@@ -19,6 +19,7 @@ apt_install \
     ca-certificates \
     curl \
     ffmpeg \
+    git \
     gnupg \
     software-properties-common \
     wget
