@@ -5,4 +5,4 @@
 R -q -e 'remotes::install_local("/home/rstudio/audio.whisper")'
 
 # Cleanup
-rm -rf /home/rstudio/audio/whisper
+rm -rf /home/rstudio/audio.whisper
