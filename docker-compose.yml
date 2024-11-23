@@ -2,9 +2,9 @@ services:
   whisper:
     image: jmgirard/wsl-cuda-whisper:${VAD_TAG}
     ports:
-      - "8787:8787"
+      - "${RS_PORT}:8787"
     environment:
-      - PASSWORD=pass
+      - PASSWORD=${RS_PASS}
     deploy:
       resources:
         reservations:
