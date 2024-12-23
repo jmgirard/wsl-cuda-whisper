@@ -4,7 +4,7 @@ The audio.whisper R package allows users to easily use OpenAI's Whisper model (e
 | Tag    | Base Image       | Operating System | R ver | CUDA ver |
 |--------|------------------|------------------|-------|----------|
 | latest | rocker/tidyverse | Ubuntu 24.04 LTS | 4.4.2 | 12.6     |
-| novad  | rocker/tidyverse | Ubuntu 24.04 LTS | 4.4.2 | 11.8     |
+| novad  | rocker/tidyverse | Ubuntu 24.04 LTS | 4.4.2 | 12.6     |
 | vad    | rocker/tidyverse | Ubuntu 22.04 LTS | 4.4.1 | 11.8     |
 
 Usage:
