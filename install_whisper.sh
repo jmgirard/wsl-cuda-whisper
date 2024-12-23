@@ -1,8 +1,13 @@
 #!/bin/bash
 # install_whisper.sh
 
-# Install the previously downloaded package
-R -q -e 'remotes::install_local("/home/rstudio/audio.whisper")'
+set -e
 
-# Cleanup
-rm -rf /home/rstudio/audio.whisper
+AW_VERSION=${1:-${AW_VERSION}}
+
+# Install audio.whisper
+R -q -e '    
+    pak::pkg_install("bnosac/audio.whisper@'${AW_VERSION}'")
+    pak::cache_clean()
+    pak::meta_clean(TRUE)
+'

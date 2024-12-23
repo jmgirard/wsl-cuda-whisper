@@ -16,13 +16,11 @@ function apt_install() {
 # Install apt dependencies
 apt_install \
     build-essential \
-    ca-certificates \
     curl \
     ffmpeg \
-    git \
     gnupg \
-    software-properties-common \
-    wget
+    libarchive-dev \
+    software-properties-common
 
 # Set up the NVIDIA CUDA repository for WSL Ubuntu
 wget -nv https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
