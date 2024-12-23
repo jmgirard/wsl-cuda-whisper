@@ -2,10 +2,10 @@ ARG R_VERSION=4.4.2
 
 FROM rocker/tidyverse:${R_VERSION}
 
-COPY install_cuda_latest.sh install_openac.sh install_whisper.sh /setup_scripts/
+COPY install_cuda_12.6.sh install_openac.sh install_whisper.sh /setup_scripts/
 
 RUN chmod +x /setup_scripts/*.sh 
-RUN /setup_scripts/install_cuda_latest.sh
+RUN /setup_scripts/install_cuda_12.6.sh
 RUN /setup_scripts/install_openac.sh
 
 ENV PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
